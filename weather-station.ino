@@ -45,7 +45,7 @@ void handleWeather() {
 }
 
 void handleRoot() {
-  server.send(200, "text/plain", "hewwo uwu");
+  server.send(200, "text/plain", "business-appropriate greeting");
 }
 
 void handleNotFound() {
