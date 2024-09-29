@@ -184,7 +184,13 @@ void setup() {
 void loop() {
   ArduinoOTA.handle();
   server.handleClient();
-
+  // Reconnect to WiFi if disconnected
+  if (WiFi.status() != WL_CONNECTED) {
+    Serial.println("WiFi was disconnected, reconnecting.");
+    WiFi.disconnect();
+    WiFi.reconnect();
+  }
+  
   // Update SSD1306 128x32 every 1 second
   if (loop_count > 500) {
     update_display();
